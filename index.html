@@ -1,0 +1,577 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>2026학년도 교육연구부 사업 예산 및 보고서 제출 안내</title>
+<style>
+:root{
+  --navy:#22406e;--navy2:#2f4a78;--blue:#3f6bb0;--blue-soft:#e9f0fa;
+  --bg:#f5f7fb;--card:#fff;--line:#e6ebf3;--muted:#6b7688;--ink:#1e2a40;
+  --green:#2f7d54;--greenbg:#e9f4ee;--amber:#9a6100;--amberbg:#fdf1dc;
+  --done:#2f5aa0;--donebg:#edf2fb;--red:#b23b46;--redbg:#fdeced;
+  --accent:#2f5aa0;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;-webkit-text-size-adjust:100%;font-size:16px}
+.wrap{max-width:1120px;margin:auto;padding:16px}
+
+/* Hero */
+.hero{background:#fff;padding:26px 26px 22px;border-radius:24px;color:var(--ink);box-shadow:0 8px 26px rgba(34,64,110,.08);border:1px solid var(--line)}
+.hero .kicker{font-size:14px;font-weight:800;color:var(--navy2);letter-spacing:.03em}
+.hero h1{margin:6px 0 9px;font-size:32px;letter-spacing:-.03em;line-height:1.2;color:var(--navy)}
+.hero p{margin:0;color:var(--muted);line-height:1.6;font-size:16px}
+.dl-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.deadline{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:99px;background:var(--blue-soft);color:var(--navy2);font-weight:800;font-size:14px;border:1px solid #d5e2f2}
+.deadline.warn{background:#fdf1dc;color:var(--amber);border-color:#f0dca9}
+.mode{display:flex;gap:8px;margin-top:18px}
+.mode button{border:1px solid var(--line);background:#f5f7fb;color:var(--navy2);padding:10px 16px;border-radius:99px;font-weight:800;cursor:pointer;font-size:15px}
+.mode button.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+.search{margin-top:12px;background:#f7f9fd;border:1px solid var(--line);border-radius:16px;padding:8px;display:flex;gap:8px}
+.search input{flex:1;border:0;outline:0;font-size:18px;padding:11px;color:var(--ink);background:transparent}
+.search button{border:0;background:var(--navy);color:#fff;padding:11px 20px;border-radius:11px;font-weight:800;cursor:pointer;font-size:16px;transition:background .15s}
+.search button:hover{background:#1a3358}
+.quick{display:flex;gap:6px;flex-wrap:wrap;margin-top:11px}
+.quick button{border:1px solid var(--line);background:#fff;color:var(--navy2);border-radius:99px;padding:7px 13px;cursor:pointer;font-size:14px;transition:background .15s}
+.quick button:hover{background:var(--blue-soft)}
+
+/* Overview stat cards */
+.overview{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0}
+.overview .box{background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px 15px}
+.box small{color:var(--muted);font-weight:700;font-size:14px}
+.box strong{display:block;font-size:24px;margin-top:6px;letter-spacing:-.02em;color:var(--navy)}
+.box .bsub{color:var(--muted);font-size:12px;margin-top:4px}
+
+/* Result area */
+#result{margin:16px 0;scroll-margin-top:12px}
+.resultHead{background:linear-gradient(135deg,#fff,#f7faff);border:1px solid var(--line);border-radius:18px;padding:17px 18px}
+.resultHead h2{margin:0;font-size:25px;letter-spacing:-.02em}
+.resultHead p{margin:6px 0 0;color:var(--muted);font-size:15px;line-height:1.55}
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:14px}
+.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px 17px;box-shadow:0 4px 16px rgba(28,39,64,.04)}
+.top{display:flex;justify-content:space-between;gap:8px}
+.program{font-size:13px;font-weight:900;color:#54688a;letter-spacing:.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.card h3{margin:4px 0 3px;font-size:20px;letter-spacing:-.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sub{font-size:15px;color:var(--muted);line-height:1.5;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.badge{font-size:12px;font-weight:900;padding:5px 10px;border-radius:99px;white-space:nowrap;height:max-content}
+.unused{background:var(--amberbg);color:var(--amber)}
+.used{background:var(--greenbg);color:var(--green)}
+.done{background:var(--donebg);color:var(--done)}
+.money{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:12px}
+.money div{background:#f6f9fd;padding:9px;border-radius:9px}
+.money small{display:block;color:#7a8493;font-size:12px}
+.money b{font-size:16px;white-space:nowrap}
+.money b.hi{color:var(--accent)}
+.swtags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.swtag{display:inline-block;background:var(--blue-soft);color:var(--navy2);border:1px solid #d5e2f2;border-radius:99px;padding:5px 12px;font-size:15px;font-weight:700}
+.track{height:7px;background:#edf0f4;border-radius:99px;margin-top:9px;overflow:hidden}
+.fill{height:100%;background:linear-gradient(90deg,var(--blue),var(--navy));border-radius:99px;transition:width .4s}
+.todo{border-top:1px solid #eef1f6;margin-top:11px;padding-top:11px;font-size:15px;line-height:1.55}
+.todo .rp{display:inline-block;margin-top:2px}
+.todo .due{color:#c0392b;font-weight:900}
+
+/* Report link slots */
+.links{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap}
+.linkbtn{flex:1;min-width:130px;text-align:center;border:1px solid var(--line);border-radius:10px;padding:10px;font-size:13px;font-weight:800;text-decoration:none;color:#33507a;background:#f7faff}
+.linkbtn.disabled{color:#9aa5b5;background:#f4f5f8;cursor:default}
+.linkbtn.live{background:var(--blue);color:#fff;border-color:var(--blue)}
+
+/* Guide accordion */
+details{margin-top:10px;border:1px solid #dfe5ed;border-radius:11px;background:#fbfcfe;overflow:hidden}
+summary{cursor:pointer;padding:12px 13px;font-size:13px;font-weight:850;color:#33507a;list-style:none}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"펼치기 ▾";float:right;color:#8592a6;font-weight:700}
+details[open] summary::after{content:"접기 ▴"}
+.guide{padding:0 13px 13px;font-size:13px;line-height:1.7;color:#4f5d70}
+.guide b{color:#26385a}
+.copy-wrap{position:relative;margin:4px 0 11px}
+.copy{white-space:pre-wrap;background:#fff;border:1px solid #e4e9ef;border-radius:8px;padding:10px;font-size:13px;line-height:1.65}
+.copybtn{position:absolute;top:7px;right:7px;border:1px solid #cdd8e6;background:#fff;color:#33507a;border-radius:7px;padding:5px 11px;font-size:12px;font-weight:800;cursor:pointer}
+.copybtn.ok{background:var(--green);color:#fff;border-color:var(--green)}
+
+/* Section divider */
+.section-divider{display:flex;align-items:center;gap:12px;margin:28px 2px 4px}
+.section-divider::before,.section-divider::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--line) 20%,var(--line) 80%,transparent)}
+.divider-label{font-size:16px;font-weight:900;color:var(--navy);white-space:nowrap;letter-spacing:-.01em}
+.divider-desc{margin:0 2px 4px;color:var(--muted);font-size:14px;text-align:center}
+
+/* Tabs / tables */
+.tabs{display:flex;flex-wrap:wrap;gap:7px;margin:22px 0 10px;padding-bottom:2px}
+.tab-break{flex-basis:100%;height:0}
+.tabs button{border:1px solid var(--line);background:#fff;border-radius:99px;padding:11px 16px;font-weight:800;color:#42536a;white-space:nowrap;cursor:pointer;font-size:16px}
+.tabs button.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+.panel{display:none}.panel.active{display:block}
+.panelHead{margin:0 2px 10px;display:flex;justify-content:space-between;align-items:flex-end;gap:10px;flex-wrap:wrap}
+.panelHead h2{margin:0;font-size:22px;letter-spacing:-.02em}
+.panelHead p{margin:4px 0 0;color:var(--muted);font-size:15px}
+.miniStat{font-size:14px;color:var(--muted);background:#fff;border:1px solid var(--line);border-radius:10px;padding:9px 13px}
+.miniStat b{color:var(--ink)}
+.tableWrap{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:auto}
+table{width:100%;border-collapse:collapse;min-width:820px}
+th,td{padding:12px 14px;border-bottom:1px solid #eef1f6;text-align:left;font-size:16px;white-space:nowrap}
+th{background:#f7fafc;color:#586577;position:sticky;top:0;font-size:15px}
+td.num{text-align:right;font-variant-numeric:tabular-nums}
+td.topic{white-space:normal}
+tr.zero td{color:#96a0af}
+.pill{font-size:13px;font-weight:900;padding:4px 10px;border-radius:99px}
+.pill.u{background:var(--amberbg);color:var(--amber)}
+.pill.g{background:var(--greenbg);color:var(--green)}
+.pill.d{background:var(--donebg);color:var(--done)}
+
+.notice{background:#fffdf5;border:1px solid #efdf9c;border-radius:14px;padding:14px 16px;margin-bottom:10px;font-size:15px;color:#6d5c1b;line-height:1.6}
+.empty{background:#fff;border:1px dashed #c9d3df;border-radius:17px;padding:28px;text-align:center;color:#6f7a8a;line-height:1.65;font-size:15px}
+.footer{padding:24px 4px;color:#7b8492;font-size:15px;line-height:1.7}
+.footer b{color:#5c6675}
+
+@media(max-width:760px){
+  .cards{grid-template-columns:1fr}
+  .overview{grid-template-columns:1fr 1fr}
+  .hero{padding:22px}.hero h1{font-size:24px}
+  .search{flex-direction:column}
+  th,td{min-width:auto}
+}
+@media print{
+  .hero .mode,.hero .search,.hero .quick,.tabs,.dl-row,.copybtn,.links{display:none!important}
+  body{background:#fff}.card,.tableWrap,.box{box-shadow:none}
+  .panel{display:block!important}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<section class="hero">
+<div class="kicker">2026학년도 · 교육연구부</div>
+<div style="text-align:right;font-size:13px;font-weight:700;color:#2f5aa0;margin-top:2px">기준일: 9.7 (주기적으로 업데이트 예정)</div>
+<h1>사업 예산 및 보고서 제출 안내</h1>
+<p>본인 이름을 검색하면 해당되는 사업 예산·잔액·품의 안내·제출할 보고서를 한 번에 확인할 수 있습니다.</p>
+<div class="dl-row">
+  <span class="deadline">🗓 예산 사용 및 보고서 제출 기한: 10월 30일</span>
+</div>
+<div class="mode">
+<button id="teacherMode" class="active" type="button">교사로 찾기</button>
+<button id="deptMode" type="button">부서로 찾기</button>
+</div>
+<div class="search">
+<input id="query" placeholder="이름 입력 예) 최재연" autocomplete="off">
+<button id="searchBtn" type="button">내 예산 확인</button>
+</div>
+<div class="quick" id="quick"></div>
+</section>
+
+<div class="overview" id="overview"></div>
+
+<div id="result"></div>
+
+<div class="section-divider">
+  <span class="divider-label">전체 사업별 예산 목록</span>
+</div>
+<p class="divider-desc">아래는 사업별 전체 현황입니다. 위 검색 결과와 별개로, 사업 전체를 한눈에 보고 싶을 때 사용하세요.</p>
+
+<div class="tabs">
+<button class="active" data-tab="autonomy">학교자율과제</button>
+<button data-tab="mentor">최성보 사제동행</button>
+<button data-tab="future">미래교육실천학교</button>
+<button data-tab="software">수업도구 소프트웨어</button>
+<div class="tab-break"></div>
+<button data-tab="jhg">전문적 학습공동체</button>
+<button data-tab="dongari">교직원 동아리</button>
+<button data-tab="gwamok">교과운영비</button>
+<button data-tab="yeonsu">교원 자율연수비</button>
+</div>
+
+<section id="autonomy" class="panel active">
+<div class="panelHead"><div><h2>학교자율과제 · 학급별 인성교육</h2><p>학급별 인성교육은 담임 이름 검색 시 자동 연결됩니다.</p></div><div class="miniStat" id="autonomyStat"></div></div>
+<div class="notice">학급당 <b>250,000원</b> 배정입니다. 카드의 <b>예산 사용·품의 안내 보기</b>에서 예산·결재 경로와 품의 양식을 확인하고 <b>복사 버튼</b>으로 가져갈 수 있습니다.<br>📝 <b>보고서는 공동 구글 문서에서 작성합니다.</b> 담임 선생님은 문서를 열어 <b>해당 학급 칸</b>에 <b>활동사진 1장</b>과 <b>활동 설명 1문장</b>을 입력해주세요. (10월 30일까지)</div>
+<div style="margin-bottom:8px"><label style="font-size:15px;color:var(--muted)"><input type="checkbox" class="onlyZero" data-target="autonomyRows"> 미사용 학급만 보기</label></div>
+<div class="tableWrap"><table><thead><tr><th>학급</th><th>담임</th><th>활동 주제</th><th>배정</th><th>사용</th><th>잔액</th><th>상태</th></tr></thead><tbody id="autonomyRows"></tbody></table></div>
+</section>
+
+<section id="mentor" class="panel">
+<div class="panelHead"><div><h2>최성보 선도학교 · 학급별 사제동행</h2><p>목적사업비 시트에 등록된 학급만 표시됩니다.</p></div><div class="miniStat" id="mentorStat"></div></div>
+<div class="notice">학급당 <b>100,000원</b> 배정입니다. 등록된 학급은 담임 이름 검색 시 자동 연결되며, 미등록 학급에는 사제동행 카드가 나타나지 않습니다.</div>
+<div style="margin-bottom:8px"><label style="font-size:15px;color:var(--muted)"><input type="checkbox" class="onlyZero" data-target="mentorRows"> 미품의 학급만 보기</label></div>
+<div class="tableWrap"><table><thead><tr><th>학급</th><th>담임</th><th>유형</th><th>주제</th><th>배정</th><th>품의</th><th>잔액</th><th>상태</th></tr></thead><tbody id="mentorRows"></tbody></table></div>
+</section>
+
+<section id="future" class="panel">
+<div class="panelHead"><div><h2>고양 미래교육 실천학교</h2><p>AI·디지털 활용 교과 및 동아리</p></div><div class="miniStat" id="futureStat"></div></div>
+<div class="notice">교사 이름을 검색하면 해당 교과·동아리가 한 화면에 모입니다. 품의 내용에 <b>AI·디지털 기반 활동</b>이 드러나도록 작성해주세요.</div>
+<div style="margin-bottom:8px"><label style="font-size:15px;color:var(--muted)"><input type="checkbox" class="onlyZero" data-target="futureRows"> 미품의만 보기</label></div>
+<div class="tableWrap"><table><thead><tr><th>구분</th><th>교사</th><th>교과/동아리</th><th>활동</th><th>배정</th><th>품의</th><th>잔액</th><th>상태</th></tr></thead><tbody id="futureRows"></tbody></table></div>
+</section>
+
+<section id="software" class="panel">
+<div class="panelHead"><div><h2>수업도구 활용 소프트웨어</h2><p>구독료 품의 완료 · 보고서만 제출</p></div><div class="miniStat" id="softwareStat"></div></div>
+<div class="notice">신청하신 소프트웨어는 <b>10월 30일까지</b> 활동 사진 및 간단 결과보고만 제출하면 됩니다.</div>
+<div class="tableWrap"><table><thead><tr><th>신청교사</th><th>신청 소프트웨어</th><th>할 일</th></tr></thead><tbody id="softwareRows"></tbody></table></div>
+</section>
+
+<section id="jhg" class="panel">
+<div class="panelHead"><div><h2>전문적 학습공동체</h2><p>1인당 3만원 · 회장/총무 담당</p></div><div class="miniStat" id="jhgStat"></div></div>
+<div class="notice">전학공 회장·총무 이름으로 검색하면 배정·사용·잔액이 표시됩니다. 배정은 참여 인원 × 3만원입니다.</div>
+<div class="tableWrap"><table><thead><tr><th>전학공</th><th>회장</th><th>총무</th><th>배정</th><th>사용</th><th>잔액</th><th>상태</th></tr></thead><tbody id="jhgRows"></tbody></table></div>
+</section>
+
+<section id="dongari" class="panel">
+<div class="panelHead"><div><h2>교직원 동아리</h2><p>1인당 2만원 · 회장/총무 담당</p></div><div class="miniStat" id="dongariStat"></div></div>
+<div class="notice">동아리 회장·총무 이름으로 검색하면 배정·사용·잔액이 표시됩니다. 운영 보고서는 <b>11월 30일</b>까지 제출합니다.</div>
+<div class="tableWrap"><table><thead><tr><th>동아리</th><th>회장</th><th>총무</th><th>배정</th><th>사용</th><th>잔액</th><th>상태</th></tr></thead><tbody id="dongariRows"></tbody></table></div>
+</section>
+
+<section id="gwamok" class="panel">
+<div class="panelHead"><div><h2>교과운영비</h2><p>1인당 1만원 · 교과부장 담당</p></div><div class="miniStat" id="gwamokStat"></div></div>
+<div class="notice">교과부장 이름으로 검색하면 배정·사용·잔액이 표시됩니다. 배정은 교과 소속 교사 수 × 1만원입니다.</div>
+<div class="tableWrap"><table><thead><tr><th>교과</th><th>담당</th><th>배정</th><th>사용</th><th>잔액</th><th>상태</th></tr></thead><tbody id="gwamokRows"></tbody></table></div>
+</section>
+
+<section id="yeonsu" class="panel">
+<div class="panelHead"><div><h2>교원 자율연수비</h2><p>전 교원 대상 · 1인 3만원 이내 · 신청자만 지원</p></div><div class="miniStat" id="yeonsuStat"></div></div>
+<div class="notice">직무연수·자격 취득·도서 구입(중 1)을 지원합니다. 인정기간 2026.3.1.~11.30. 신청은 <b>구글시트 기재 + 설문폼(이수증·영수증) 제출</b>이며, 아래 표에서 본인 이름으로 신청 여부를 확인할 수 있습니다. 문의: 연구부 이예지(☎143)</div>
+<div style="margin-bottom:8px"><label style="font-size:15px;color:var(--muted)"><input type="checkbox" class="onlyApplied" data-target="yeonsuRows"> 신청자만 보기</label></div>
+<div class="tableWrap"><table><thead><tr><th>교원</th><th>신청 여부</th><th>구분</th><th>신청 내용</th><th>연수/도서금액</th><th>예상 지원액</th></tr></thead><tbody id="yeonsuRows"></tbody></table></div>
+</section>
+
+<div style="margin-top:16px;text-align:right">
+<button id="printBtn" type="button" style="border:1px solid var(--line);background:#fff;border-radius:10px;padding:10px 16px;font-weight:800;color:#42536a;cursor:pointer;font-size:14px">🖨 전체 현황 인쇄 · PDF 저장</button>
+</div>
+
+<div class="footer">
+예산 수치는 품의 후 원인행위 금액 기준으로 일정한 기간마다 반영 후 갱신됩니다. 예산 사용 및 보고서 제출 기한을 지켜주시면 감사드리겠습니다.<br>
+<div style="margin-top:14px;text-align:right;font-weight:800;color:#5c6675">신일비즈니스고 최재연T</div>
+</div>
+</div>
+
+<script>
+const D = {"teachers": {"1-1": "황윤현", "1-2": "오주석", "1-3": "윤지원", "1-4": "강계완", "1-5": "전형민", "1-6": "구소희", "1-7": "김성환", "1-8": "윤여민", "2-1": "사재은", "2-2": "정회진", "2-3": "조효진", "2-4": "송미영", "2-5": "맹정은", "2-6": "한현근", "2-7": "최은진", "2-8": "이예지", "3-1": "김진실", "3-2": "박금주", "3-3": "최명숙", "3-4": "한선숙", "3-5": "임주희", "3-6": "이영숙", "3-7": "김현화", "3-8": "최현희"}, "character": {"1-1": ["다양한 문화 존중과 공감, 세계화와 상호의존성", 250000, 0], "1-2": ["말하기 전에 다시 한번 생각하기", 250000, 0], "1-3": ["생활 속 자원 절약 실천 프로젝트", 250000, 25800], "1-4": ["학급 공동체 속 소속감과 책임감 기르기", 250000, 0], "1-5": ["선플 달기 프로젝트", 250000, 0], "1-6": ["지구환경 보호를 위한 기후행동 캠페인", 250000, 0], "1-7": ["참여와 행동하는 세계 시민 교육", 250000, 0], "1-8": ["글로벌 보건간호", 250000, 100000], "2-1": ["SDGs 과제탐구를 통한 세계 리더십 프로젝트", 250000, 99200], "2-2": ["분리수거로 알아보는 세계 환경 보호", 250000, 0], "2-3": ["생활 속 탄소 줄이기로 지구와 공존하기", 250000, 0], "2-4": ["더불어 살며 서로 존중하는 시민의식 기르기", 250000, 0], "2-5": ["배려와 소통을 통한 협력적 디자인 프로젝트", 250000, 0], "2-6": ["서로 칭찬하고 존중하며 더불어 살아가는 태도 배우기", 250000, 0], "2-7": ["다양성을 이해하고 협력하는 세계시민 역량 함양", 250000, 49900], "2-8": ["공동 문제 해결 프로젝트를 통한 세계시민 리더십 함양", 250000, 0], "3-1": ["디지털 탄소 다이어트", 250000, 0], "3-2": ["평화와 갈등 해결을 위한 대화의 중요성 인식하기", 250000, 0], "3-3": ["건강한 지구를 위한 실천 꿈 엽서 그리기", 250000, 0], "3-4": ["환경을 위한 자원순환의식 기르기", 250000, 53400], "3-5": ["플로깅을 통한 학교 환경 보호 의식 기르기", 250000, 154500], "3-6": ["생활 속 환경 실천을 통한 세계시민 의식 기르기", 250000, 247810], "3-7": ["디지털 세계시민으로서의 미디어 윤리와 온라인 교류 프로젝트", 250000, 240600], "3-8": ["이주노동자의 의료사각지대 해소를 위한 방안 모색", 250000, 240400]}, "mentor": {"1-1": ["학습응원형", "작은 성공의 기록, 우리 반 레벨업 프로젝트", 100000, 99980], "1-3": ["문화체험형", "열 일곱, 무엇이든 할 수 있는 ‘나’이다.", 100000, 0], "1-5": ["정서지원형", "365일 36.5도의 따뜻한 마음 지피기", 100000, 100000], "1-6": ["정서지원형", "함께 만들고 나누는 마음 성장 교실", 100000, 0], "1-8": ["정서지원형", "선생님과 함께 따뜻하고 안전한, 모두가 성장하는 학급 만들기", 100000, 0], "2-1": ["학습응원형", "나를 알고, 너를 배우며 함께 성장하는 학급 멘토링 서클", 100000, 98170], "2-3": ["학습응원형", "함께 걷는 학습 응원 프로젝트", 100000, 55120], "2-4": ["학습응원형", "I에서 A(Ace)로! 응원 프로젝트", 100000, 0], "2-5": ["정서지원형", "[Dear. Tomorrow] 내일의 우리에게 보내는 오늘의 기록", 100000, 0], "2-6": ["정서지원형", "감정 날씨 맑음 – 너의 마음을 함께 읽는 시간", 100000, 52000], "2-7": ["정서지원형·학습응원형", "학생 정서 안정과 자존감 회복 및 학습 동기 강화", 100000, 97470], "2-8": ["정서지원형·학습응원형", "너의 가능성을 믿어! 마음·학습 동반성장 프로젝트", 100000, 93100]}, "futureCourse": [["최재연", "공통영어1", "여행상품 온라인브로슈어 제작", 200000, 0], ["이예지", "문학", "디지털 문학창작 작품집 제작", 200000, 0], ["맹정은", "시각디자인", "브랜드 프로젝트 기획", 200000, 0], ["안은아", "창업일반", "사업계획서 작성", 200000, 0], ["김혜진", "컴퓨터그래픽", "그래픽 작품 제작", 200000, 0], ["김미학", "통합사회", "문화 융합 전략 개발하기", 200000, 0], ["맹아론", "애니메이션 기초", "애니메이션 작품 제작", 200000, 0], ["윤여민", "기초간호임상실무", "질환별 식단 소개 숏폼 제작", 200000, 0], ["최현희", "공중보건", "식품의 변질과 보존 숏폼 제작", 200000, 0], ["지호영", "공중보건", "식품의 변질과 보존 숏폼 제작", 200000, 0], ["우소영", "캐릭터제작", "캐릭터 제작 AI 활용 3D이미지 제작", 200000, 0], ["우소영", "만화콘텐츠제작", "AI활용 만화 애니메이션 제작", 200000, 0], ["임예옥", "확률과 통계", "디지털 큐브를 활용한 신의 숫자 탐구", 200000, 0], ["황유진", "상업경제", "활동 내용 추후 입력", 200000, 0], ["김현화", "광고콘텐츠제작", "AI활용 광고 이미지 제작", 200000, 0]], "futureClub": [["김혜진", "만화창작1·2반", "디지털 작품 활용 물품 제작", 100000, 0], ["우소영", "디자인매니아1·2반", "AI·디지털 활용 디자인 활동", 100000, 0], ["지호영", "보건의료연구반", "NFC 건강정보 키링 제작", 100000, 0], ["임예옥", "미디어사회문제탐구반", "스마트 큐브 기반 알고리즘·확증편향 탐구", 100000, 0], ["박선영", "그린메이커스반", "AI·디지털을 활용한 환경 이해 수업", 100000, 0], ["최현희", "보건의료탐구반", "맞춤형 환자 간식 설계", 100000, 99300], ["윤여민", "보건의료실무반", "NFC 건강정보 키링 제작", 100000, 0], ["맹정은", "일러페어반", "그래픽 디자인 굿즈 제작", 100000, 0], ["김현화", "디지털크래프트1·2반", "AI 활용 캐릭터 키링 제작", 100000, 0], ["황유진", "피티마스터1·2반", "웨어러블 기기를 활용한 AI 기반 체력관리 (예산은 카페창업준비반으로 통합 집행)", 0, 0], ["이경아", "카페창업준비1·2반", "AI 활용 동아리 로고 및 실습재료 제작 (황유진 피티마스터반 예산 통합)", 200000, 198430], ["최명숙", "도서관탐방1·2반", "AI·디지털 활용 활동", 100000, 93600], ["임주희", "드로잉아트1·2반", "디지털 활용 굿즈 및 템플릿 제작", 100000, 0], ["한선숙", "다시봄반", "AI NFC 키링 제작", 100000, 99700], ["김미학", "지역탐방반", "전시 체험 및 4D ride 체험", 100000, 30000], ["박정주", "문화체험2반", "현대모터스튜디오 프로그램 체험", 100000, 0], ["김혜정", "도서1·2반", "AI를 활용한 그림책 제작", 100000, 0], ["정미란", "경제탐구1반", "AI·디지털 활용 경제 탐구", 100000, 0], ["박금주", "경제탐구2반", "AI·디지털 활용 경제 탐구", 100000, 0], ["김진실", "경제탐구3반", "AI·디지털 활용 경제 탐구", 100000, 0], ["황윤현", "생활체육탐방반", "AI를 활용한 체육활동", 100000, 0], ["이예지", "업사이클링 공예1·2반", "AI NFC DIY CD키링 만들기", 100000, 99900], ["전형민", "프랩1·2반", "AI·디지털 활용 활동", 100000, 0], ["송민우", "진로포트폴리오반", "디지털을 이용한 포트폴리오 만들기", 100000, 0], ["맹아론", "미디크루", "AI·디지털 학생 프로젝트 대표동아리", 300000, 0]], "software": [["최재연", "북크리에이터"], ["이경아", "퀴즈앤"], ["사재은", "퀴즈앤"], ["전형민", "WeToon"], ["맹아론", "북크리에이터"], ["임주희", "브루(vrew)"], ["맹아론", "패들렛"], ["최현희", "퀴즈앤"], ["우소영", "패들렛"], ["우소영", "WeToon"], ["이영숙", "브루(vrew)"], ["박선영", "CLASS TOOL"], ["박금주", "패들렛"], ["정미란", "북크리에이터"], ["김현화", "WeToon"], ["이예지", "퀴즈앤"], ["이예지", "패들렛"], ["맹정은", "퀴즈앤"], ["김미학", "퀴즈앤"], ["한선숙", "퀴즈앤"], ["이예지", "자작자작"], ["박금주", "마이클"], ["송민우", "북크리에이터"], ["안은아", "패들렛"], ["이예지", "레서"], ["임예옥", "마이클"], ["황유진", "class 101"], ["최은진", "블루킷"], ["송미영", "카훗"], ["박선영", "블루킷"], ["윤여민", "브루(vrew)"], ["김혜진", "WeToon"], ["백경민", "브루(vrew)"], ["김현화", "브루(vrew)"], ["임주희", "WeToon"], ["임태식", "브루(vrew)"], ["이영숙", "WeToon"], ["맹정은", "패들렛"], ["황유진", "퀴즈앤"], ["최재연", "워드월"], ["최재연", "마이클"], ["김미학", "브루(vrew)"], ["최재연", "스마트리"], ["최현희", "퀴버"]], "dept": {"인성융합부": [["학교자율과제", "인성교육 공연", 5000000, 5000000], ["학교자율과제", "학급별 인성교육", 6000000, 1061700], ["학교자율과제", "인성교육 특강", 11840000, 0], ["학교자율과제", "인성교육 교사 연수", 250000, 250000]], "교육연구부": [["학교자율과제", "학과별 진로진학 강좌", 4800000, 0], ["수업도구", "마이클", 299000, 299000], ["수업도구", "class 101", 250000, 250000]], "학생생활인권부": [["학교자율과제", "학업중단위기학생 사제동행", 2400000, 2400000]], "스마트IT경영학과부": [["학교자율과제", "학과별 진로진학 활동", 800000, 0], ["학교자율과제", "학과별 진로진학 강좌", 1200000, 0]], "스토어기획과부": [["학교자율과제", "학과별 진로진학 활동", 800000, 800000], ["학교자율과제", "학과별 진로진학 강좌", 1600000, 1600000]], "창의디자인과부": [["학교자율과제", "학과별 진로진학 활동", 800000, 0], ["학교자율과제", "학과별 진로진학 강좌", 1600000, 800000]], "보건간호과부": [["학교자율과제", "학과별 진로진학 활동", 1400000, 1400000], ["학교자율과제", "학과별 진로진학 강좌", 800000, 800000], ["수업도구", "마이클", 299000, 299000]], "특성화교육부": [["수업도구", "마이클", 299000, 299000], ["수업도구", "class 101", 250000, 250000]], "교육정보부": [["수업도구", "class 101", 250000, 250000]], "교무기획부": [["수업도구", "마이클", 299000, 299000]], "창의디자인부": [["수업도구", "마이클", 299000, 299000], ["수업도구", "class 101", 250000, 250000]], "홍보기획부": [["수업도구", "마이클", 299000, 299000]], "행정실": [["수업도구", "마이클", 299000, 299000]]}, "guides": {"학급별 인성교육": {"route": "교무기획부 → 교과활동지원 → 학급별인성교육", "approval": "담임선생님 → 교육연구부장 → 행정과장님(협조) → 행정실장님(협조) → 교감선생님", "title": "[학교자율과제][학급별 인성교육] 0학년 0반 ○○○", "form": "1. 관련: 신일비즈니스고등학교-3706(2026.03.25.)\n2. 2026학년도 학급별 인성교육 활동비를 다음과 같이 품의하고자 합니다.\n가. 내용: 학급 인성·세계시민교육 활동이 드러나도록 작성\n나. 일시: 2026. 00. 00. (요일) 00:00 ~\n다. 대상: 0학년 0반 학생 등\n라. 금액: 금 ○○○원 (금○○○원정). 끝.", "note": "간식비는 10만원까지 사용 가능. 품의 후 빠른 결재를 위해 교육연구부장에게 메신저 부탁드립니다.", "report": "공동 구글 문서의 해당 학급 칸에 활동사진 1장과 활동 설명 1문장 입력, 10월 30일까지"}, "사제동행": {"route": "교무기획부 → 교과활동지원 → 최성보 선도학교 → 학급사제동행 프로그램 물품 구입", "approval": "담임교사 → 교육연구부장 → 행정과장님(협조) → 행정실장님(협조) → 교감선생님", "title": "[최성보 선도학교][학급별 사제동행] 0학년 0반 사제동행 운영비 품의", "form": "1. 관련: 신일비즈니스고등학교-4817(2026.4.10.)\n2. 최소성취수준보장지도의 일환으로 사제동행 운영비를 품의합니다.\n가. 내용: 학급별 사제동행 주제가 드러나도록 작성\n나. 일시\n다. 대상\n라. 품목\n마. 금액", "note": "학급별 주제가 드러나도록 작성해주세요.", "report": "학급별 사제동행 활동 결과보고"}, "AI·디지털 교과": {"route": "교무기획부 → 교과활동지원 → 미래교육 실천학교 운영 → AI디지털 활용 교육활동 물품 구입비", "approval": "교과담당교사 → 교육연구부장 → 행정과장님(협조) → 행정실장님(협조) → 교감선생님", "title": "[미래교육실천학교][교과운영비] ○○○", "form": "관련: 신일비즈니스고등학교-5485(2026.4.21.)\nAI·디지털 기반 활동이 드러나도록 내용·일시·대상·금액 작성", "note": "품의 내용에 AI·디지털 기반 활동이 드러나도록 작성해주세요.", "report": "AI·디지털 활용 교과 운영 결과보고"}, "AI·디지털 동아리": {"route": "교무기획부 → 교과활동지원 → 미래교육 실천학교 운영 → AI디지털 활용 교육활동 물품 구입비", "approval": "동아리담당교사 → 교육연구부장 → 행정과장님(협조) → 행정실장님(협조) → 교감선생님", "title": "[미래교육실천학교][동아리활동비] ○○○", "form": "관련: 신일비즈니스고등학교-5485(2026.4.21.)\nAI·디지털 기반 활동이 드러나도록 내용·일시·대상·금액 작성", "note": "품의 내용에 AI·디지털 기반 활동이 드러나도록 작성해주세요.", "report": "AI·디지털 활용 동아리 활동 결과보고"}, "수업도구": {"route": "교육연구부에서 일괄 품의 완료", "approval": "개별 교사 추가 품의 없음", "title": "별도 품의 불필요", "form": "구독료는 이미 품의 완료되었습니다.", "note": "10월 30일까지 활동 사진 및 간단 보고서 제출", "report": "활동 사진 및 간단 결과보고"}}, "jhg": [["보건간호과", "지호영", "왕경희", 120000, 0], ["융합디자인 연구", "우소영", "김현화", 240000, 0], ["디지털기반 수업연구", "최재연", "이예지", 180000, 0], ["학교생활기록부 내실화", "사재은", "조효진", 180000, 0], ["라이브커머스 교육", "황유진", "황유진", 150000, 0], ["사회적협동조합", "안은아", "구소희", 90000, 0], ["학업중단예방 회복적생활지도", "오상윤", "오상윤", 240000, 0], ["미래역량기반 인성함양", "송혜진", "송혜진", 150000, 148800], ["홍보기획", "백경민", "원희수", 90000, 88130], ["학생진로지도", "권선희", "정회진", 120000, 0], ["진로체험 연구", "권희자", "권희자", 90000, 0]], "dongari": [["샷&샷(Shot & Shot)", "전형민", "윤여민", 120000, 0], ["식집사들의 여유있는 소통 공간", "지호영", "최현희", 200000, 0], ["특성화 톡톡", "권선희", "송민우", 100000, 0], ["문화나눔", "임주희", "임지윤", 220000, 110000], ["신비 파워", "최석원(전병화)", "한현근", 160000, 0], ["옹달샘", "왕경희", "왕경희", 60000, 60000], ["퐁당퐁당", "김미학", "김현화", 80000, 0], ["걷다보면", "임태식", "안은아", 80000, 0]], "gwamok": [["국어", ["조효진"], 30000, 0], ["수학", ["황윤현"], 30000, 0], ["외국어", ["최재연", "최은진"], 40000, 39800], ["역사", ["송혜진"], 20000, 20000], ["통합사회", ["강계완"], 20000, 0], ["통합과학", ["박선영"], 20000, 0], ["음악", ["사재은"], 10000, 0], ["정보컴퓨터", ["정회진"], 40000, 0], ["상업정보", ["권선희"], 130000, 119245], ["디자인공예", ["이영숙"], 90000, 82555], ["보건", ["윤여민"], 40000, 0], ["진로기획부", ["권희자"], 20000, 20000]], "yeonsu": [["이예지", 30000, 0, "미신청", "", "", 0], ["조효진", 30000, 0, "미신청", "", "", 0], ["최명숙", 30000, 0, "미신청", "", "", 0], ["김혜진", 30000, 0, "미신청", "", "", 0], ["맹아론", 30000, 0, "미신청", "", "", 0], ["백경민", 30000, 0, "미신청", "", "", 0], ["우소영", 30000, 0, "미신청", "", "", 0], ["이영숙", 30000, 0, "미신청", "", "", 0], ["김현화", 30000, 30000, "신청", "도서", "생성형 AI 프롬프트 디자인", 30000], ["맹정은", 30000, 0, "미신청", "", "", 0], ["임주희", 30000, 0, "미신청", "", "", 0], ["전형민", 30000, 0, "미신청", "", "", 0], ["왕경희", 30000, 0, "미신청", "", "", 0], ["윤여민", 30000, 0, "미신청", "", "", 0], ["지호영", 30000, 0, "미신청", "", "", 0], ["최현희", 30000, 0, "미신청", "", "", 0], ["김혜정", 30000, 0, "미신청", "", "", 0], ["윤지원", 30000, 30000, "신청", "직무연수", "AICE JUNIOR 자격시험", 50000], ["정미란", 30000, 0, "미신청", "", "", 0], ["황유진", 30000, 0, "미신청", "", "", 0], ["권선희", 30000, 0, "미신청", "", "", 0], ["김복례", 30000, 0, "미신청", "", "", 0], ["박금주", 30000, 0, "미신청", "", "", 0], ["서찬원", 30000, 0, "미신청", "", "", 0], ["안은아", 30000, 0, "미신청", "", "", 0], ["원희수", 30000, 0, "미신청", "", "", 0], ["이경아", 30000, 0, "미신청", "", "", 0], ["이현숙", 30000, 0, "미신청", "", "", 0], ["임태식", 30000, 0, "미신청", "", "", 0], ["한선숙", 30000, 0, "미신청", "", "", 0], ["임예옥", 30000, 0, "미신청", "", "", 0], ["한현근", 30000, 0, "미신청", "", "", 0], ["황윤현", 30000, 0, "미신청", "", "", 0], ["송혜진", 30000, 0, "미신청", "", "", 0], ["최석원(전병화)", 30000, 0, "미신청", "", "", 0], ["박정주", 30000, 0, "미신청", "", "", 0], ["송미영", 30000, 0, "미신청", "", "", 0], ["최재연", 30000, 0, "미신청", "", "", 0], ["사재은", 30000, 0, "미신청", "", "", 0], ["박수아(성이슬)", 30000, 0, "미신청", "", "", 0], ["김성환", 30000, 0, "미신청", "", "", 0], ["김진실", 30000, 0, "미신청", "", "", 0], ["오상윤", 30000, 0, "미신청", "", "", 0], ["정회진", 30000, 0, "미신청", "", "", 0], ["최은진", 30000, 0, "미신청", "", "", 0], ["권희자", 30000, 0, "미신청", "", "", 0], ["양정석", 30000, 0, "미신청", "", "", 0], ["장혜수", 30000, 0, "미신청", "", "", 0], ["오주석", 30000, 20820, "신청", "도서", "단 3개의 미국ETF로 은퇴하라", 20820], ["송민우", 30000, 0, "미신청", "", "", 0], ["구소희", 30000, 0, "미신청", "", "", 0], ["박선영", 30000, 0, "미신청", "", "", 0], ["강계완", 30000, 0, "미신청", "", "", 0], ["김미학", 30000, 0, "미신청", "", "", 0], ["장유정", 30000, 0, "미신청", "", "", 0]]};
+
+/* ── 여기에 링크를 채우면 모든 카드에 자동 반영됩니다 ──
+   빈 문자열("")이면 '준비 중'으로 표시됩니다. */
+const LINKS = {
+  "학급별 인성교육":  { form:"https://docs.google.com/document/d/11juGY4291PT7aPqvdi4KupC_K1zk6c4j1xU6aD_pwXg/edit?usp=sharing", folder:"" },
+  "학교자율과제":     { form:"https://docs.google.com/document/d/11juGY4291PT7aPqvdi4KupC_K1zk6c4j1xU6aD_pwXg/edit?usp=sharing", folder:"" },
+  "사제동행":         { form:"https://docs.google.com/document/d/1hQ6lH2AmzZ4QVfZZbyPmDAdpuOTdTPI22b1Xb0uZfPo/edit?usp=sharing", folder:"" },
+  "AI·디지털 교과":    { form:"https://docs.google.com/document/d/1qZuplUoq5NEmsxVqCGB9yAcl2ycsLC9d8M1EdMoQQyg/edit?usp=sharing", folder:"" },
+  "AI·디지털 동아리":  { form:"https://docs.google.com/document/d/1qZuplUoq5NEmsxVqCGB9yAcl2ycsLC9d8M1EdMoQQyg/edit?usp=sharing", folder:"" },
+  "수업도구":         { form:"https://docs.google.com/document/d/1tJv3Q4AWdvp0tjOsm3-tYcY3TtpETl2Tey4gs9zI9a8/edit?usp=sharing", folder:"" }
+};
+
+(function(){
+"use strict";
+let mode="teacher";
+const q=document.getElementById("query");
+const result=document.getElementById("result");
+
+function fmt(n){return n==null?"확인 중":Number(n).toLocaleString("ko-KR")+"원";}
+function norm(s){return String(s||"").replace(/\s/g,"").replace(/\(기초학력\)/g,"");}
+function nameMatch(field,name){
+  // "박수아(성이슬)" → 박수아, 성이슬 둘 다 매칭
+  var f=norm(field);
+  if(f===name)return true;
+  var m=f.match(/^(.+?)\((.+?)\)$/);
+  if(m&&(m[1]===name||m[2]===name))return true;
+  return false;
+}
+function esc(s){return String(s||"").replace(/[&<>"']/g,function(m){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m];});}
+function pct(u,b){return b?Math.max(0,Math.min(100,Math.round((u||0)/b*100))):0;}
+
+/* 링크 버튼 (준비 중이면 비활성) */
+function linksHTML(key){
+  const L=LINKS[key]||{}; const parts=[];
+  // 공동 문서에 직접 입력하는 사업: 문서 열기 버튼만, 제출 폴더 없음
+  const docInput=(key==="학급별 인성교육"||key==="학교자율과제"||key==="사제동행"||key==="AI·디지털 교과"||key==="AI·디지털 동아리"||key==="수업도구");
+  if(docInput){
+    if(L.form) parts.push('<a class="linkbtn live" href="'+esc(L.form)+'" target="_blank" rel="noopener">📝 구글문서 열기</a>');
+    else parts.push('<span class="linkbtn disabled">📝 구글문서 (준비 중)</span>');
+    return '<div class="links">'+parts.join("")+'</div>';
+  }
+  if(L.form) parts.push('<a class="linkbtn live" href="'+esc(L.form)+'" target="_blank" rel="noopener">📄 보고서 양식 열기</a>');
+  else parts.push('<span class="linkbtn disabled">📄 보고서 양식 (준비 중)</span>');
+  if(L.folder) parts.push('<a class="linkbtn live" href="'+esc(L.folder)+'" target="_blank" rel="noopener">📤 제출 폴더 열기</a>');
+  else parts.push('<span class="linkbtn disabled">📤 제출 폴더 (준비 중)</span>');
+  return '<div class="links">'+parts.join("")+'</div>';
+}
+
+/* 품의 안내 (복사 버튼 포함) */
+function guideHTML(key){
+  const g=D.guides[key]; if(!g)return "";
+  return '<details><summary>예산 사용·품의 안내 보기</summary><div class="guide">'
+   +'<b>예산 경로</b><br>'+esc(g.route)+'<br><br>'
+   +'<b>결재 경로</b><br>'+esc(g.approval)+'<br><br>'
+   +'<b>품의명</b>'+copyBlock(g.title)
+   +'<b>품의 양식 / 작성 예시</b>'+copyBlock(g.form)
+   +'<b>유의사항</b><br>'+esc(g.note)+'<br><br>'
+   +'<b>제출할 보고서</b><br>'+esc(g.report)
+   +'</div></details>';
+}
+function copyBlock(text){
+  return '<div class="copy-wrap"><button type="button" class="copybtn" onclick="__copy(this)">복사</button><div class="copy">'+esc(text)+'</div></div>';
+}
+window.__copy=function(btn){
+  const t=btn.nextElementSibling.textContent;
+  const done=function(){btn.textContent="복사됨 ✓";btn.classList.add("ok");setTimeout(function(){btn.textContent="복사";btn.classList.remove("ok");},1500);};
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done,function(){fallback(t,done);});}
+  else fallback(t,done);
+};
+function fallback(t,cb){const ta=document.createElement("textarea");ta.value=t;ta.style.position="fixed";ta.style.opacity="0";document.body.appendChild(ta);ta.select();try{document.execCommand("copy");}catch(e){}document.body.removeChild(ta);cb();}
+
+function budgetCard(program,title,sub,budget,used,reportText,guideKey){
+  let state=["미사용","unused"];
+  if(budget>0&&used>=budget)state=["사용 완료","done"];else if(used>0)state=["사용 중","used"];
+  const remain=budget-used;
+  return '<article class="card">'
+   +'<div class="top"><div><div class="program">'+esc(program)+'</div><h3>'+esc(title)+'</h3><div class="sub">'+esc(sub)+'</div></div><span class="badge '+state[1]+'">'+state[0]+'</span></div>'
+   +'<div class="money"><div><small>배정</small><b>'+fmt(budget)+'</b></div><div><small>사용/품의</small><b>'+fmt(used)+'</b></div><div><small>잔액</small><b class="hi">'+fmt(remain)+'</b></div></div>'
+   +'<div class="track"><div class="fill" style="width:'+pct(used,budget)+'%"></div></div>'
+   +'<div class="todo"><b>제출할 보고서</b><br><span class="rp">'+reportText+'</span></div>'
+   +guideHTML(guideKey)
+   +linksHTML(guideKey)
+   +'</article>';
+}
+var YEONSU_SHEET="https://docs.google.com/spreadsheets/d/15kKkMz6zg3u5fU-SLv4v07op2H-ipi3H_zPWA7R_zMs/edit?usp=sharing";
+var YEONSU_FORM="https://tally.so/r/xXPZek";
+function yeonsuCard(x){
+  var nm=x[0], applied=(x[3]==="신청"), sup=x[2], typ=x[4], cont=x[5], orig=x[6];
+  var badge=applied?'<span class="badge done">신청 완료</span>':'<span class="badge unused">미신청</span>';
+  var body;
+  if(applied){
+    var label=(typ==="도서")?"도서금액":"연수금액";
+    body='<div class="money">'
+        +'<div><small>'+label+'</small><b>'+fmt(orig)+'</b></div>'
+        +'<div><small>예상 지원액</small><b class="hi">'+fmt(sup)+'</b></div>'
+        +'<div><small>구분</small><b>'+esc(typ)+'</b></div></div>'
+        +'<div class="todo"><b>신청 내용</b><br><span class="rp">'+esc(cont)+'</span><br><br><b>이제 할 일</b><br><span class="rp">11월 전까지 연수 이수증·영수증을 제출폼으로 제출하세요.</span></div>';
+  }else{
+    body='<div class="todo"><b>안내</b><br><span class="rp">아직 <b>미신청</b>입니다. 희망 시 아래 <b>구글시트</b>에 기재하고, 이수증·영수증을 <b>제출폼</b>으로 내면 됩니다. (직무연수·자격·도서 중 1, 1인 3만원 이내)</span></div>';
+  }
+  return '<article class="card">'
+   +'<div class="top"><div><div class="program">교원 자율연수비</div><h3>'+esc(nm)+' 선생님</h3><div class="sub">직무연수·자격·도서 (중 1) · 1인 3만원 이내</div></div>'+badge+'</div>'
+   +body
+   +'<div class="links"><a class="linkbtn live" href="'+YEONSU_SHEET+'" target="_blank" rel="noopener">📄 신청 구글시트</a><a class="linkbtn live" href="'+YEONSU_FORM+'" target="_blank" rel="noopener">📤 이수증·영수증 제출폼</a></div>'
+   +'</article>';
+}
+function softwareCard(names){
+  const list=[].concat(names);
+  const tags=list.map(function(n){return '<span class="swtag">'+esc(n)+'</span>';}).join("");
+  const title=list.length>1?"신청 소프트웨어 "+list.length+"종":esc(list[0]);
+  return '<article class="card">'
+   +'<div class="top"><div><div class="program">수업도구 소프트웨어</div><h3>'+title+'</h3><div class="sub">신청 완료</div></div><span class="badge done">보고서만 제출</span></div>'
+   +'<div class="swtags">'+tags+'</div>'
+   +'<div class="todo"><b>제출할 보고서</b><br><span class="rp">아래 <b>구글문서</b>를 클릭 후 <b>본인 칸</b>에 활용 사진 1장과 활용 방안·좋은 점·아쉬운 점을 작성해주세요.<br>제출 기한: <span class="due">10월 30일</span></span></div>'
+   +linksHTML("수업도구")
+   +'</article>';
+}
+
+function searchTeacher(){
+  const raw=q.value.trim(), name=norm(raw), cards=[]; let cls=null;
+  Object.keys(D.teachers).forEach(function(c){if(norm(D.teachers[c])===name)cls=c;});
+  if(cls&&D.character[cls]){const x=D.character[cls];
+    cards.push(budgetCard("학교자율과제 · 학급별 인성교육",cls+" "+D.teachers[cls]+" 담임",x[0],x[1],x[2],"아래 <b>구글문서</b>를 클릭 후 <b>"+cls+" 칸</b>에 활동사진 1장과 활동 설명 1문장을 작성해주세요.<br>제출 기한: <span class='due'>10월 30일</span>","학급별 인성교육"));}
+  if(cls&&D.mentor[cls]){const x=D.mentor[cls];
+    cards.push(budgetCard("최성보 선도학교 · 학급별 사제동행",cls+" "+D.teachers[cls]+" 담임",x[0]+" · "+x[1],x[2],x[3],"아래 <b>구글문서</b>를 클릭 후 <b>"+cls+" 칸</b>에 활동사진 1장과 활동 설명·활동 결과를 작성해주세요.<br>제출 기한: <span class='due'>10월 30일</span>","사제동행"));}
+  D.futureCourse.forEach(function(x){if(norm(x[0])===name)cards.push(budgetCard("미래교육실천학교 · AI·디지털 교과",x[1],x[2],x[3],x[4],"아래 <b>구글문서</b>를 클릭 후 <b>본인 칸</b>에 활동사진 1장과 AI·디지털 활용 설명을 작성해주세요.<br>제출 기한: <span class='due'>10월 30일</span>","AI·디지털 교과"));});
+  D.futureClub.forEach(function(x){if(norm(x[0])===name)cards.push(budgetCard("미래교육실천학교 · AI·디지털 동아리",x[1],x[2],x[3],x[4],"아래 <b>구글문서</b>를 클릭 후 <b>본인 칸</b>에 활동사진 1장과 AI·디지털 활용 설명을 작성해주세요.<br>제출 기한: <span class='due'>10월 30일</span>","AI·디지털 동아리"));});
+  // 전문적학습공동체 (회장/총무)
+  D.jhg.forEach(function(x){if(nameMatch(x[1],name)||nameMatch(x[2],name)){
+    var role=nameMatch(x[1],name)?"회장":"총무";
+    cards.push(budgetCard("전문적 학습공동체",x[0],role+" · "+x[1]+" 회장 / "+x[2]+" 총무",x[3],x[4],"전학공 연수·활동 후 결과보고를 제출해주세요.<br>제출 기한: <span class='due'>10월 30일</span>",null));
+  }});
+  // 교직원동아리
+  D.dongari.forEach(function(x){if(nameMatch(x[1],name)||nameMatch(x[2],name)){
+    var role=nameMatch(x[1],name)?"회장":"총무";
+    cards.push(budgetCard("교직원 동아리",x[0],role+" · "+x[1]+" 회장 / "+x[2]+" 총무",x[3],x[4],"11월 30일까지 동아리 운영 보고서(활동 내용·사진)를 제출해주세요.",null));
+  }});
+  // 교과운영비 (담당 교과부장)
+  D.gwamok.forEach(function(x){if(x[1].some(function(t){return nameMatch(t,name);})){
+    cards.push(budgetCard("교과운영비",x[0]+" 교과",x[1].join("·")+" 담당",x[2],x[3],"교과협의회·교과운영 관련 지출 및 증빙을 정리해주세요.",null));
+  }});
+  // 교원자율연수비 (전 교원 대상, 신청 여부)
+  D.yeonsu.forEach(function(x){if(nameMatch(x[0],name)){
+    var applied=(x[3]==="신청");
+    cards.push(yeonsuCard(x));
+  }});
+  const sw=D.software.filter(function(x){return norm(x[0])===name;});
+  if(sw.length)cards.push(softwareCard(sw.map(function(x){return x[1];})));
+  if(cards.length){
+    result.innerHTML='<div class="resultHead"><h2>'+esc(raw)+' 선생님 · '+cards.length+'개 항목</h2><p>'+(cls?esc(cls)+' 담임 · ':'')+'아래에서 예산·잔액과 제출할 보고서를 확인하세요. 품의 양식은 카드 안 <b>복사 버튼</b>으로 바로 가져갈 수 있습니다.</p></div><div class="cards">'+cards.join("")+'</div>';
+  }else{
+    result.innerHTML='<div class="empty"><b>'+esc(raw||"이름")+'</b>으로 연결된 항목을 찾지 못했습니다.<br>이름의 띄어쓰기를 확인하거나, 아래 표에서 직접 찾아보세요.</div>';
+  }
+  result.scrollIntoView({behavior:"smooth",block:"start"});
+}
+
+function searchDept(){
+  const raw=q.value.trim(); let key=null;
+  Object.keys(D.dept).forEach(function(k){if(!key&&norm(k)===norm(raw))key=k;});
+  if(!key)Object.keys(D.dept).forEach(function(k){if(!key&&norm(k).includes(norm(raw)))key=k;});
+  if(!key){result.innerHTML='<div class="empty"><b>'+esc(raw||"부서명")+'</b>으로 연결된 부서 예산을 찾지 못했습니다.</div>';return;}
+  const cards=[];
+  const swNames=D.dept[key].filter(function(x){return x[0]==="수업도구";}).map(function(x){return x[1];});
+  D.dept[key].forEach(function(x){
+    if(x[0]!=="수업도구"){
+      var isClassChar=(x[1].indexOf("학급별 인성교육")>-1);
+      var rpt=isClassChar
+        ? "아래 <b>구글문서</b>를 클릭 후 <b>해당 학급 칸</b>에 활동사진 1장과 활동 설명 1문장을 작성해주세요.<br>제출 기한: <span class='due'>10월 30일</span>"
+        : "아래 <b>구글문서</b>를 클릭 후 해당 칸에 활동 사진·설명을 적고 <b>4. 사업 성과 종합</b>, <b>5. 개선 및 환류 계획</b>을 작성해주세요.<br>제출 기한: <span class='due'>10월 30일</span>";
+      cards.push(budgetCard("학교자율과제",x[1],"부서 배정 예산",x[2],x[3],rpt,"학교자율과제"));
+    }
+  });
+  if(swNames.length)cards.push(softwareCard(swNames));
+  result.innerHTML='<div class="resultHead"><h2>'+esc(key)+' · '+cards.length+'개 예산</h2><p>부서에 배정된 예산 현황입니다.</p></div><div class="cards">'+cards.join("")+'</div>';
+  result.scrollIntoView({behavior:"smooth",block:"start"});
+}
+function runSearch(){mode==="teacher"?searchTeacher():searchDept();}
+
+function renderQuick(){
+  const arr=[];
+  const box=document.getElementById("quick");box.innerHTML="";
+  arr.forEach(function(v){const b=document.createElement("button");b.type="button";b.textContent=v;b.onclick=function(){q.value=v;runSearch();};box.appendChild(b);});
+}
+function setMode(m){
+  mode=m;
+  document.getElementById("teacherMode").classList.toggle("active",m==="teacher");
+  document.getElementById("deptMode").classList.toggle("active",m==="dept");
+  q.value="";q.placeholder=m==="teacher"?"이름 입력 예) 최재연":"부서명 입력 예) 교육연구부";
+  document.getElementById("searchBtn").textContent=m==="teacher"?"내 예산 확인":"부서 예산 확인";
+  renderQuick();
+}
+
+/* ── 요약 통계 (실데이터 자동 계산) ── */
+function buildOverview(){
+  const char=D.character;
+  const cB=Object.keys(char).reduce(function(s,c){return s+char[c][1];},0);
+  const cU=Object.keys(char).reduce(function(s,c){return s+char[c][2];},0);
+  const cUnused=Object.keys(char).filter(function(c){return char[c][2]===0;}).length;
+  const cN=Object.keys(char).length;
+
+  const men=D.mentor;
+  const mB=Object.keys(men).reduce(function(s,c){return s+men[c][2];},0);
+  const mU=Object.keys(men).reduce(function(s,c){return s+men[c][3];},0);
+  const mUnused=Object.keys(men).filter(function(c){return men[c][3]===0;}).length;
+  const mN=Object.keys(men).length;
+
+  const fAll=D.futureCourse.concat(D.futureClub);
+  const fB=fAll.reduce(function(s,x){return s+x[3];},0);
+  const fU=fAll.reduce(function(s,x){return s+x[4];},0);
+  const fUnused=fAll.filter(function(x){return x[4]===0;}).length;
+
+  const box=document.getElementById("overview");
+  box.innerHTML=
+    stat("학급별 인성교육 잔액",fmt(cB-cU),"미사용 "+cUnused+"/"+cN+"학급")
+   +stat("학급별 사제동행 잔액",fmt(mB-mU),"미품의 "+mUnused+"/"+mN+"학급")
+   +stat("미래교육 잔액",fmt(fB-fU),"미품의 "+fUnused+"/"+fAll.length+"건 (교과·동아리)");
+}
+function stat(label,big,sub){return '<div class="box"><small>'+label+'</small><strong>'+big+'</strong><div class="bsub">'+sub+'</div></div>';}
+
+/* ── 표 렌더 (상태 pill + 미사용 필터) ── */
+function stPill(used,budget){
+  if(budget>0&&used>=budget)return '<span class="pill d">완료</span>';
+  if(used>0)return '<span class="pill g">사용중</span>';
+  return '<span class="pill u">미사용</span>';
+}
+function renderTables(){
+  document.getElementById("autonomyRows").innerHTML=Object.keys(D.character).map(function(c){
+    const x=D.character[c],z=x[2]===0?' class="zero"':'';
+    return '<tr'+z+' data-zero="'+(x[2]===0?1:0)+'"><td><b>'+c+'</b></td><td>'+esc(D.teachers[c])+'</td><td class="topic">'+esc(x[0])+'</td><td class="num">'+fmt(x[1])+'</td><td class="num">'+fmt(x[2])+'</td><td class="num">'+fmt(x[1]-x[2])+'</td><td>'+stPill(x[2],x[1])+'</td></tr>';
+  }).join("");
+  document.getElementById("mentorRows").innerHTML=Object.keys(D.mentor).map(function(c){
+    const x=D.mentor[c],z=x[3]===0?' class="zero"':'';
+    return '<tr'+z+' data-zero="'+(x[3]===0?1:0)+'"><td><b>'+c+'</b></td><td>'+esc(D.teachers[c])+'</td><td>'+esc(x[0])+'</td><td class="topic">'+esc(x[1])+'</td><td class="num">'+fmt(x[2])+'</td><td class="num">'+fmt(x[3])+'</td><td class="num">'+fmt(x[2]-x[3])+'</td><td>'+stPill(x[3],x[2])+'</td></tr>';
+  }).join("");
+  let fr=[];
+  D.futureCourse.forEach(function(x){fr.push('<tr data-zero="'+(x[4]===0?1:0)+'"'+(x[4]===0?' class="zero"':'')+'><td>교과</td><td><b>'+esc(x[0])+'</b></td><td class="topic">'+esc(x[1])+'</td><td class="topic">'+esc(x[2])+'</td><td class="num">'+fmt(x[3])+'</td><td class="num">'+fmt(x[4])+'</td><td class="num">'+fmt(x[3]-x[4])+'</td><td>'+stPill(x[4],x[3])+'</td></tr>');});
+  D.futureClub.forEach(function(x){fr.push('<tr data-zero="'+(x[4]===0?1:0)+'"'+(x[4]===0?' class="zero"':'')+'><td>동아리</td><td><b>'+esc(x[0])+'</b></td><td class="topic">'+esc(x[1])+'</td><td class="topic">'+esc(x[2])+'</td><td class="num">'+fmt(x[3])+'</td><td class="num">'+fmt(x[4])+'</td><td class="num">'+fmt(x[3]-x[4])+'</td><td>'+stPill(x[4],x[3])+'</td></tr>');});
+  document.getElementById("futureRows").innerHTML=fr.join("");
+  const swByTeacher={};
+  const swOrder=[];
+  D.software.forEach(function(x){
+    if(!swByTeacher[x[0]]){swByTeacher[x[0]]=[];swOrder.push(x[0]);}
+    swByTeacher[x[0]].push(x[1]);
+  });
+  document.getElementById("softwareRows").innerHTML=swOrder.map(function(t){
+    const items=swByTeacher[t];
+    const tags=items.map(function(n){return '<span class="swtag">'+esc(n)+'</span>';}).join(" ");
+    return '<tr><td><b>'+esc(t)+'</b></td><td class="topic">'+tags+'</td><td>10월 30일까지 활동 사진 및 간단 결과보고</td></tr>';
+  }).join("");
+
+  document.getElementById("autonomyStat").innerHTML=miniStat(D.character,2,1);
+  document.getElementById("mentorStat").innerHTML=miniStat(D.mentor,3,2);
+  const fAll=D.futureCourse.concat(D.futureClub);
+  const fUn=fAll.filter(function(x){return x[4]===0;}).length;
+  document.getElementById("futureStat").innerHTML='미품의 <b>'+fUn+'</b> / 전체 '+fAll.length+'건';
+  const swT=new Set(D.software.map(function(x){return norm(x[0]);})).size;
+  document.getElementById("softwareStat").innerHTML='보고 대상 <b>'+swT+'</b>명 · 신청 '+D.software.length+'건';
+
+  // 전문적 학습공동체
+  document.getElementById("jhgRows").innerHTML=D.jhg.map(function(x){
+    var z=x[4]===0?' class="zero"':'';
+    return '<tr'+z+'><td class="topic"><b>'+esc(x[0])+'</b></td><td>'+esc(x[1])+'</td><td>'+esc(x[2])+'</td><td class="num">'+fmt(x[3])+'</td><td class="num">'+fmt(x[4])+'</td><td class="num">'+fmt(x[3]-x[4])+'</td><td>'+stPill(x[4],x[3])+'</td></tr>';
+  }).join("");
+  var jhgUn=D.jhg.filter(function(x){return x[4]===0;}).length;
+  document.getElementById("jhgStat").innerHTML='미사용 <b>'+jhgUn+'</b> / 전체 '+D.jhg.length+'개';
+
+  // 교직원 동아리
+  document.getElementById("dongariRows").innerHTML=D.dongari.map(function(x){
+    var z=x[4]===0?' class="zero"':'';
+    return '<tr'+z+'><td class="topic"><b>'+esc(x[0])+'</b></td><td>'+esc(x[1])+'</td><td>'+esc(x[2])+'</td><td class="num">'+fmt(x[3])+'</td><td class="num">'+fmt(x[4])+'</td><td class="num">'+fmt(x[3]-x[4])+'</td><td>'+stPill(x[4],x[3])+'</td></tr>';
+  }).join("");
+  var donUn=D.dongari.filter(function(x){return x[4]===0;}).length;
+  document.getElementById("dongariStat").innerHTML='미사용 <b>'+donUn+'</b> / 전체 '+D.dongari.length+'개';
+
+  // 교과운영비
+  document.getElementById("gwamokRows").innerHTML=D.gwamok.map(function(x){
+    var z=x[3]===0?' class="zero"':'';
+    return '<tr'+z+'><td><b>'+esc(x[0])+'</b></td><td>'+esc(x[1].join("·"))+'</td><td class="num">'+fmt(x[2])+'</td><td class="num">'+fmt(x[3])+'</td><td class="num">'+fmt(x[2]-x[3])+'</td><td>'+stPill(x[3],x[2])+'</td></tr>';
+  }).join("");
+  var gwaUn=D.gwamok.filter(function(x){return x[3]===0;}).length;
+  document.getElementById("gwamokStat").innerHTML='미사용 <b>'+gwaUn+'</b> / 전체 '+D.gwamok.length+'개';
+
+  // 교원 자율연수비
+  document.getElementById("yeonsuRows").innerHTML=D.yeonsu.map(function(x){
+    var applied=(x[3]==="신청");
+    var z=applied?'':' class="zero"';
+    var pill=applied?'<span class="pill g">신청</span>':'<span class="pill u">미신청</span>';
+    return '<tr'+z+' data-applied="'+(applied?1:0)+'"><td><b>'+esc(x[0])+'</b></td><td>'+pill+'</td><td>'+(applied?esc(x[4]):'-')+'</td><td class="topic">'+(applied?esc(x[5]):'-')+'</td><td class="num">'+(applied?fmt(x[6]):'-')+'</td><td class="num">'+(applied?fmt(x[2]):'-')+'</td></tr>';
+  }).join("");
+  var yApp=D.yeonsu.filter(function(x){return x[3]==="신청";}).length;
+  document.getElementById("yeonsuStat").innerHTML='신청 <b>'+yApp+'</b> / 전체 '+D.yeonsu.length+'명';
+}
+function miniStat(obj,usedIdx,budIdx){
+  const keys=Object.keys(obj);
+  const un=keys.filter(function(k){return obj[k][usedIdx]===0;}).length;
+  return '미사용 <b>'+un+'</b> / 전체 '+keys.length+'학급';
+}
+
+/* 미사용만 보기 필터 */
+function bindFilters(){
+  document.querySelectorAll(".onlyZero").forEach(function(cb){
+    cb.addEventListener("change",function(){
+      const rows=document.getElementById(cb.getAttribute("data-target")).querySelectorAll("tr");
+      rows.forEach(function(r){r.style.display=(cb.checked&&r.getAttribute("data-zero")!=="1")?"none":"";});
+    });
+  });
+  document.querySelectorAll(".onlyApplied").forEach(function(cb){
+    cb.addEventListener("change",function(){
+      const rows=document.getElementById(cb.getAttribute("data-target")).querySelectorAll("tr");
+      rows.forEach(function(r){r.style.display=(cb.checked&&r.getAttribute("data-applied")!=="1")?"none":"";});
+    });
+  });
+}
+
+document.getElementById("teacherMode").onclick=function(){setMode("teacher");};
+document.getElementById("deptMode").onclick=function(){setMode("dept");};
+document.getElementById("searchBtn").onclick=runSearch;
+document.getElementById("printBtn").onclick=function(){window.print();};
+q.addEventListener("keydown",function(e){if(e.key==="Enter")runSearch();});
+document.querySelectorAll(".tabs button").forEach(function(btn){
+  btn.onclick=function(){
+    document.querySelectorAll(".tabs button").forEach(function(b){b.classList.remove("active");});
+    document.querySelectorAll(".panel").forEach(function(p){p.classList.remove("active");});
+    btn.classList.add("active");document.getElementById(btn.getAttribute("data-tab")).classList.add("active");
+  };
+});
+
+buildOverview();renderQuick();renderTables();bindFilters();
+})();
+</script>
+</body>
+</html>
